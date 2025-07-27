@@ -1,0 +1,182 @@
+<!DOCTYPE html> <html lang="en"> 
+  <head> <meta charset="UTF-8" />
+     <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>ChillComfort</title> <link rel="stylesheet" href="index.css" />
+       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" /> <style> .card { backdrop-filter: blur(13px) saturate(80%); -webkit-backdrop-filter: blur(13px) saturate(80%); background-color: rgba(255, 255, 255, 0); border-radius: 12px; border: 1px solid rgba(209, 213, 219, 0.3); } .text1 { height: 40vh; width: auto; margin-top: -3px; } .img1 { position: absolute; bottom: -10px; right: 0; margin-left: 60%; border-radius: 12px; } .carousel-caption { bottom: 0; } .foot { padding: 2rem 0; background-color: var(--bg-color-light); } .w3-hover-opacity { cursor: pointer; } @media (max-width: 767.98px) { .text1 { height: 30vh; } .img1 { position: relative; margin: 0 auto; margin-top: 2rem; margin-bottom: 2rem; width: 70%; } } </style> </head> <body> <header> <!-- Navigation Bar --> <nav class="navbar navbar-expand-lg bg-dark sticky-top"> <div class="container-fluid"> <a class="navbar-brand" href="#"> <img src="./Assests/af6a51b4-5dfe-4ff7-b160-2c5104648dc7.jpg" alt="ChillComfort Logo" height="40vh" width="auto" style="border-radius: 50%; background-color: antiquewhite" /> </a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" > <span class="navbar-toggler-icon"></span> </button> <div class="collapse navbar-collapse" id="navbarSupportedContent"> <ul class="navbar-nav ms-auto gap-5 mb-2 mb-lg-0"> <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#">Home</a> </li> <li class="nav-item"> <a class="nav-link" href="over.html">Registation</a> </li> <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" > Dropdown </a> <ul class="dropdown-menu" aria-labelledby="navbarDropdown"> <li><a class="dropdown-item" href="#">Action</a></li> <li><a class="dropdown-item" href="#">Another action</a></li> <li><hr class="dropdown-divider" /></li> <li> <a class="dropdown-item" href="#">Something else here</a> </li> </ul> </li> <li class="nav-item"> <button onclick="toggleMode()">Dark Mode</button> </li> </ul> </div> </div> </nav>
+<style>
+  .sk-chase {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  animation: sk-chase 2.5s infinite linear both;
+}
+
+.sk-chase-dot {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0; 
+  animation: sk-chase-dot 2.0s infinite ease-in-out both; 
+}
+
+.sk-chase-dot:before {
+margin-top: -5%;
+  content: '';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  height: 25%;
+  background-color: #000000;
+  border-radius: 100%;
+  animation: sk-chase-dot-before 2.0s infinite ease-in-out both; 
+}
+
+.sk-chase-dot:nth-child(1) { animation-delay: -1.1s; }
+.sk-chase-dot:nth-child(2) { animation-delay: -1.0s; }
+.sk-chase-dot:nth-child(3) { animation-delay: -0.9s; }
+.sk-chase-dot:nth-child(4) { animation-delay: -0.8s; }
+.sk-chase-dot:nth-child(5) { animation-delay: -0.7s; }
+.sk-chase-dot:nth-child(6) { animation-delay: -0.6s; }
+.sk-chase-dot:nth-child(1):before { animation-delay: -1.1s; }
+.sk-chase-dot:nth-child(2):before { animation-delay: -1.0s; }
+.sk-chase-dot:nth-child(3):before { animation-delay: -0.9s; }
+.sk-chase-dot:nth-child(4):before { animation-delay: -0.8s; }
+.sk-chase-dot:nth-child(5):before { animation-delay: -0.7s; }
+.sk-chase-dot:nth-child(6):before { animation-delay: -0.6s; }
+
+@keyframes sk-chase {
+  100% { transform: rotate(360deg); } 
+}
+
+@keyframes sk-chase-dot {
+  80%, 100% { transform: rotate(360deg); } 
+}
+
+@keyframes sk-chase-dot-before {
+  50% {
+    transform: scale(0.4); 
+  } 100%, 0% {
+    transform: scale(1.0); 
+  } 
+}
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.overlay-carousel {
+    display: flex;
+    width: 100%;
+}
+
+.carousel-slide {
+    position: relative;
+    width: 100%;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Overlay Style */
+.overlay-carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 23, 204, 0.618); /* Adjust the last value for opacity */
+    z-index: -1;
+}
+</style>
+  <div class="container-fluid p-0">
+    <div class="row g-0">
+      <div class="col-md-6 text-center text-md-start">
+        <h1 class="h1" style="text-shadow: 2px 2px 5px rgb(255, 255, 255)">
+          ChillComfort
+        </h1>
+        <p class="text1">
+          Welcome to Chillcomfort Your Ultimate Cooling Paradise! At
+          <br />
+          Chillcomfort, we are dedicated to bringing you the coolest
+          solutions
+          <br />
+          for your indoor comfort, specializing in cutting-edge air
+          conditioningv
+          <br />
+          and refrigeration technologies. Cool Comfort, Anytime: Step into
+          a
+          <br />
+          world of refreshing coolness with our state-of-the-art air
+          <br />
+          conditioning units. From sleek split systems to powerful window
+          units,
+          <br />
+          ChillZone Zone offers a diverse range of AC solutions to suit
+          every
+          <br />
+          space and cooling need. Whether you're looking to cool a single
+          room
+          <br />
+          or your entire home, our energy-efficient and whisper-quiet AC
+          units
+          <br />
+          guarantee a comfortable atmosphere, even on the hottest days.
+          <br />
+          Refrigeration Redefined Upgrade your food storage and
+          preservation
+          <br />
+          game with our premium refrigeration appliances. ChillZone Zone
+          brings
+          <br />
+          you a selection of refrigerators that combine style,
+          functionality,
+          <br />
+          and advanced cooling technology. Keep your groceries fresh for
+          longer
+          <br />
+          with our innovative features designed to maintain optimal
+          temperature
+          <br />
+          and humidity levels.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <div class="sk-chase">
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+        </div>
+      </div>
+      <div class="carousel-container">
+        <div class="overlay-carousel">
+            <div class="carousel-slide">
+                <!-- Image 1 -->
+                <img src="./new assests/Blue HVAC Service _ Repairs Instagram Post (1).png" alt="">
+                <img src="./new assests/Blue HVAC Service _ Repairs Instagram Post (1).png" alt="Slide 1">
+            </div>
+            <div class="carousel-slide">
+                <!-- Image 2 -->
+                <img src="./new assests/Blue HVAC Service _ Repairs Instagram Post.png" alt="">
+                <img src="./new assests/Blue HVAC Service _ Repairs Instagram Post.png" 
+                 alt="Slide 2">
+            </div>
+            <!-- Add more slides as needed -->
+        </div>
+    </div>
+</body>
+</html>
+          <script>
+         
+          </script>
+
